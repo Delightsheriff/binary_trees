@@ -10,10 +10,11 @@ int binary_tree_is_full(const binary_tree_t *tree)
 {
 	/* Base case: empty tree is full */
 	if (tree == NULL)
-		return (1);
+		return (0);
 	/* Check if node has zero or two children */
-	if ((tree->left == NULL && tree->right == NULL) ||
-			(tree->left != NULL && tree->right != NULL))
+	if (tree->left == NULL && tree->right == NULL)
+		return (1);
+	if (tree->left != NULL && tree->right != NULL)
 		return (binary_tree_is_full(tree->left) &&
 		 binary_tree_is_full(tree->right));
 	/* Otherwise, tree is not full */
